@@ -35,7 +35,7 @@ export const config: ModuleConfig = {
   name: "reviews",
 };
 
-const ReviewsWidget: Module = () => {
+export const ReviewsWidget = () => {
   const [showReviewSubmissionForm, setShowReviewSubmissionForm] =
     useState(false);
   const [sort, setSort] = useState<ReviewSort>("reviewDateDesc");
@@ -249,10 +249,14 @@ const ReviewsWidget: Module = () => {
 
 const queryClient = new QueryClient();
 
-const Reviews = () => {
-  <QueryClientProvider client={queryClient}>
-    <ReviewsWidget />
-  </QueryClientProvider>;
+const Reviews: Module = () => {
+  return (
+    // <div>
+    <QueryClientProvider client={queryClient}>
+      <ReviewsWidget />
+    </QueryClientProvider>
+    // </div>
+  );
 };
 
 export default Reviews;
