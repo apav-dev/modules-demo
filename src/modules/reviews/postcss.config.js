@@ -6,7 +6,6 @@ const __dirname = path.dirname(__filename);
 
 export default {
   plugins: {
-		// specifies which tailwind.config.ts file to use,
     tailwindcss: { config: path.join(__dirname, 'tailwind.config.ts')},
     autoprefixer: {},
   },

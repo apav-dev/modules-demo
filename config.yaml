@@ -18,3 +18,7 @@ responseHeaders:
     headerKey: Access-Control-Allow-Origin
     headerValues:
       - "*"
+  - pathPattern: ^modules/potato.*
+    headerKey: Access-Control-Allow-Origin
+    headerValues:
+      - "*"
