@@ -14,3 +14,7 @@ responseHeaders:
     headerKey: Access-Control-Allow-Origin
     headerValues:
       - "*"
+  - pathPattern: ^modules/reviews.*
+    headerKey: Access-Control-Allow-Origin
+    headerValues:
+      - "*"
