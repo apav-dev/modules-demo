@@ -10,7 +10,8 @@ const REVIEWS_LIMIT = 5;
 export const fetchReviewsAggForEntity = async (
   entityId: string
 ): Promise<EntityReviewAggregate> => {
-  const requestUrl = `/reviews/${entityId}`;
+  const requestUrl = `/api/reviews/${entityId}`;
+  console.log(`fetchReviewsAggForEntity: ${requestUrl}`);
 
   const response = await fetch(requestUrl);
   const data = await response.json();
