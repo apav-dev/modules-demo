@@ -251,11 +251,9 @@ const queryClient = new QueryClient();
 
 const Reviews: Module = () => {
   return (
-    // <div>
     <QueryClientProvider client={queryClient}>
       <ReviewsWidget />
     </QueryClientProvider>
-    // </div>
   );
 };
 
