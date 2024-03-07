@@ -18,7 +18,7 @@ const REVIEWS_LIMIT = 5;
 
 // api_key: 1316c9fafd65fd4518e69100166461a7
 // v: 20221114
-const entityId = "nordica_enforcer_100_skis_2023";
+// const entityId = "nordica_enforcer_100_skis_2023";
 const entityName = "Nordica Enforcer 100 Skis 2023";
 const entityImage: ComplexImageType = {
   image: {
@@ -36,6 +36,7 @@ export const config: ModuleConfig = {
 };
 
 export const ReviewsWidget = () => {
+  const [entityId, setEntityId] = useState("");
   const [showReviewSubmissionForm, setShowReviewSubmissionForm] =
     useState(false);
   const [sort, setSort] = useState<ReviewSort>("reviewDateDesc");
@@ -59,6 +60,18 @@ export const ReviewsWidget = () => {
     const year = newDate.getFullYear();
     return `${month}/${day}/${year}`;
   };
+
+  const setEntityIdFromQueryParam = () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const entityIdParam = urlParams.get("entityId");
+    if (entityIdParam) {
+      setEntityId(entityIdParam);
+    }
+  };
+
+  useEffect(() => {
+    setEntityIdFromQueryParam();
+  }, []);
 
   useEffect(() => {
     if (!showReviewSubmissionForm) {
