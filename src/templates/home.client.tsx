@@ -1,50 +1,11 @@
+import { Template, TemplateRenderProps } from "@yext/pages";
 import "../index.css";
-import {
-  Template,
-  GetPath,
-  GetHeadConfig,
-  HeadConfig,
-  TemplateRenderProps,
-} from "@yext/pages";
-
-export const getPath: GetPath<TemplateRenderProps> = () => {
-  return `index.html`;
-};
-
-export const getHeadConfig: GetHeadConfig<
-  TemplateRenderProps
-> = (): HeadConfig => {
-  return {
-    title: "Modules Demo",
-    charset: "UTF-8",
-    viewport: "width=device-width, initial-scale=1",
-    tags: [
-      {
-        type: "meta",
-        attributes: {
-          name: "description",
-          content: "This repo contains examples of Modules in Pages.",
-        },
-      },
-      {
-        type: "script",
-        attributes: {
-          type: "module",
-          src: "https://modules.pgsdemo.com/modules/reviews.umd.js",
-        },
-      },
-      {
-        type: "script",
-        attributes: {
-          type: "module",
-          src: "https://modules.pgsdemo.com/modules/social-posts.umd.js",
-        },
-      },
-    ],
-  };
-};
 
 const Home: Template<TemplateRenderProps> = ({ document }) => {
+  // This is the site object from the Knowledge Graph. It contains all the data
+  // for the site entity, and can be accessed in any template, including static templates.
+  const { _site } = document;
+
   return (
     <div className="relative isolate overflow-hidden bg-white">
       {/* <svg
