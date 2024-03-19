@@ -22,3 +22,7 @@ responseHeaders:
     headerKey: Access-Control-Allow-Origin
     headerValues:
       - "*"
+  - pathPattern: ^modules/social-posts.*
+    headerKey: Access-Control-Allow-Origin
+    headerValues:
+      - "*"
