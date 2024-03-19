@@ -3,7 +3,7 @@ import { fontFamily } from "tailwindcss/defaultTheme";
 /** @type {import('tailwindcss').Config} */
 export default {
   darkMode: ["class"],
-  content: ["./src/**/*.{html,js,jsx,ts,tsx}"],
+  content: ["app/**/*.{ts,tsx}", "components/**/*.{ts,tsx}"],
   theme: {
     container: {
       center: true,
@@ -13,9 +13,6 @@ export default {
       },
     },
     extend: {
-      fontFamily: {
-        poppins: ["Poppins"],
-      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -56,9 +53,9 @@ export default {
         md: `calc(var(--radius) - 2px)`,
         sm: "calc(var(--radius) - 4px)",
       },
-      // fontFamily: {
-      //   sans: ["var(--font-sans)", ...fontFamily.sans],
-      // },
+      fontFamily: {
+        sans: ["var(--font-sans)", ...fontFamily.sans],
+      },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },

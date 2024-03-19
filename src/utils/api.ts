@@ -4,6 +4,7 @@ import {
   ReviewsResponse,
   reviewSortOptions,
 } from "../types/reviews";
+import { YextResponse } from "../types/yext";
 
 const REVIEWS_LIMIT = 5;
 
@@ -33,4 +34,29 @@ export const fetchReviews = async (
   const response = await fetch(requestUrl);
   const data = await response.json();
   return data.response;
+};
+
+export const fetchSocialPosts = async (
+  entityId?: string,
+  publishers?: string[]
+): Promise<YextResponse<SocialPosts>> => {
+  const queryParams = new URLSearchParams();
+  if (entityId) {
+    queryParams.append("entityId", entityId);
+  }
+  if (publishers) {
+    queryParams.append("publishers", publishers.join(","));
+  }
+  const queryString = queryParams.toString();
+  const url = `/api/posts${queryString ? `?${queryString}` : ""}`;
+  const response = await fetch(url, {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  if (response.status !== 200) {
+    throw new Error(response.statusText);
+  }
+  const body = await response.json();
+  return body;
 };

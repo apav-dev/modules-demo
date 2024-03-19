@@ -64,27 +64,27 @@ const Home: Template<TemplateRenderProps> = ({ document }) => {
         <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-xl lg:flex-shrink-0 lg:pt-8">
           <img
             className="h-11"
-            src="https://thumbs.bfldr.com/at/s789nvxj59h4fv4wrqsmskxn?expiry=1710103954&fit=bounds&height=800&sig=OTVhNmM1NWRjY2E5NWFlNThmZDRiN2YwM2MyYmQzZGFlYjhlZmUzMg%3D%3D&width=1100"
+            src="src/assets/images/yext-logo.png"
             alt="Yext"
           />
-          <h1 className="mt-10 text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+          <h1 className="mt-10 text-4xl font-poppins font-bold tracking-tight text-gray-900 sm:text-6xl">
             Widgets in Pages JS
           </h1>
-          <p className="mt-6 text-lg leading-8 text-gray-600">
+          <p className="mt-6 text-lg leading-8 font-poppins text-gray-600">
             PagesJS allows you to write React components and use them as widgets
             so that you can add them to your website as a script tag.
           </p>
           <ul className="mt-8 space-y-4">
-            <li>
+            <li className="flex items-center">
+              <img
+                src="https://cdn3.iconfinder.com/data/icons/feather-5/24/codesandbox-512.png"
+                alt="CodeSandbox"
+                className="h-5 mr-2 font-poppins"
+              />
               <a
                 href="https://codesandbox.io/p/sandbox/product-page-nmt496?file=/index.html:11,60"
-                className="text-blue-500 hover:underline flex items-center"
+                className="flex items-center font-poppins text-blue-500 hover:underline "
               >
-                <img
-                  src="https://cdn3.iconfinder.com/data/icons/feather-5/24/codesandbox-512.png"
-                  alt="CodeSandbox"
-                  className="h-5 mr-2"
-                />
                 CodeSandbox Example
               </a>
             </li>
@@ -96,7 +96,7 @@ const Home: Template<TemplateRenderProps> = ({ document }) => {
               />
               <a
                 href="https://github.com/apav-dev/widgets-demo"
-                className="text-blue-500 hover:underline"
+                className="text-blue-500 font-poppins hover:underline"
               >
                 Source Code
               </a>

@@ -12,7 +12,7 @@ import ReviewSubmissionForm from "../../common/ReviewSubmissionForm";
 import { fetchReviewsAggForEntity, fetchReviews } from "../../utils/api";
 import { ComplexImageType } from "@yext/pages-components";
 import "./index.css";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ModuleWrapper } from "../../components/util/ModuleWrapper";
 
 const REVIEWS_LIMIT = 5;
 
@@ -260,13 +260,11 @@ export const ReviewsWidget = () => {
   );
 };
 
-const queryClient = new QueryClient();
-
 const Reviews: Module = () => {
   return (
-    <QueryClientProvider client={queryClient}>
+    <ModuleWrapper>
       <ReviewsWidget />
-    </QueryClientProvider>
+    </ModuleWrapper>
   );
 };
 
