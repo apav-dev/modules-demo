@@ -26,6 +26,20 @@ export const getHeadConfig: GetHeadConfig<
           content: "This repo contains examples of Widgets in Pages.",
         },
       },
+      {
+        type: "script",
+        attributes: {
+          type: "module",
+          src: "https://widgets.pgsdemo.com/modules/reviews.umd.js",
+        },
+      },
+      {
+        type: "script",
+        attributes: {
+          type: "module",
+          src: "https://widgets.pgsdemo.com/modules/social-posts.umd.js",
+        },
+      },
     ],
   };
 };
@@ -37,7 +51,7 @@ const Home: Template<TemplateRenderProps> = ({ document }) => {
 
   return (
     <div className="relative isolate overflow-hidden bg-white">
-      <svg
+      {/* <svg
         className="absolute inset-0 -z-10 h-full w-full stroke-gray-200 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"
         aria-hidden="true"
       >
@@ -59,8 +73,8 @@ const Home: Template<TemplateRenderProps> = ({ document }) => {
           strokeWidth={0}
           fill="url(#0787a7c5-978c-4f66-83c7-11c213f99cb7)"
         />
-      </svg>
-      <div className="mx-auto max-w-7xl px-6 pb-24 pt-10 sm:pb-32 lg:flex lg:px-8 lg:py-40">
+      </svg> */}
+      <div className="mx-auto max-w-7xl px-6 pb-24 pt-10 sm:pb-32 lg:flex lg:px-8 lg:py-24">
         <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-xl lg:flex-shrink-0 lg:pt-8">
           <img
             className="h-11"
@@ -75,19 +89,6 @@ const Home: Template<TemplateRenderProps> = ({ document }) => {
             so that you can add them to your website as a script tag.
           </p>
           <ul className="mt-8 space-y-4">
-            <li className="flex items-center">
-              <img
-                src="https://cdn3.iconfinder.com/data/icons/feather-5/24/codesandbox-512.png"
-                alt="CodeSandbox"
-                className="h-5 mr-2 font-poppins"
-              />
-              <a
-                href="https://codesandbox.io/p/sandbox/product-page-nmt496?file=/index.html:11,60"
-                className="flex items-center font-poppins text-blue-500 hover:underline "
-              >
-                CodeSandbox Example
-              </a>
-            </li>
             <li className="flex items-center">
               <img
                 src="https://cdn-icons-png.flaticon.com/512/25/25231.png"
@@ -115,6 +116,18 @@ const Home: Template<TemplateRenderProps> = ({ document }) => {
                 className="w-[76rem] rounded-md shadow-2xl ring-1 ring-gray-900/10"
               />
             </div> */}
+          </div>
+        </div>
+      </div>
+      <div>
+        <div className="mx-auto max-w-7xl px-6 pb-24 pt-10 sm:pb-32 lg:flex lg:px-8 ">
+          <h2 className="text-xl text-poppins font-bold">Reviews</h2>
+          <div id="reviews"></div>
+        </div>
+        <div className="mx-auto max-w-7xl px-6 pb-24 pt-10 sm:pb-32 lg:flex lg:px-8 ">
+          <h2 className="text-xl text-poppins font-bold">Social</h2>
+          <div className="mt-20">
+            <div id="social-posts"></div>
           </div>
         </div>
       </div>
