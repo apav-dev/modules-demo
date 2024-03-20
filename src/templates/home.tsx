@@ -28,20 +28,20 @@ export const getHeadConfig: GetHeadConfig<
           content: "This repo contains examples of Modules in Pages.",
         },
       },
-      {
-        type: "script",
-        attributes: {
-          type: "module",
-          src: "https://modules.pgsdemo.com/modules/reviews.umd.js",
-        },
-      },
-      {
-        type: "script",
-        attributes: {
-          type: "module",
-          src: "https://modules.pgsdemo.com/modules/social-posts.umd.js",
-        },
-      },
+      // {
+      //   type: "script",
+      //   attributes: {
+      //     type: "module",
+      //     src: "https://modules.pgsdemo.com/modules/reviews.umd.js",
+      //   },
+      // },
+      // {
+      //   type: "script",
+      //   attributes: {
+      //     type: "module",
+      //     src: "https://modules.pgsdemo.com/modules/social-posts.umd.js",
+      //   },
+      // },
     ],
   };
 };
