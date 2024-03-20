@@ -6,6 +6,8 @@ import {
   HeadConfig,
   TemplateRenderProps,
 } from "@yext/pages";
+import { useEffect } from "react";
+import { useScript } from "../hooks/useScript";
 
 export const getPath: GetPath<TemplateRenderProps> = () => {
   return `index.html`;
@@ -26,25 +28,50 @@ export const getHeadConfig: GetHeadConfig<
           content: "This repo contains examples of Modules in Pages.",
         },
       },
-      {
-        type: "script",
-        attributes: {
-          type: "module",
-          src: "https://modules.pgsdemo.com/modules/reviews.umd.js",
-        },
-      },
-      {
-        type: "script",
-        attributes: {
-          type: "module",
-          src: "https://modules.pgsdemo.com/modules/social-posts.umd.js",
-        },
-      },
+      // {
+      //   type: "script",
+      //   attributes: {
+      //     type: "module",
+      //     src: "https://modules.pgsdemo.com/modules/reviews.umd.js",
+      //   },
+      // },
+      // {
+      //   type: "script",
+      //   attributes: {
+      //     type: "module",
+      //     src: "https://modules.pgsdemo.com/modules/social-posts.umd.js",
+      //   },
+      // },
     ],
   };
 };
 
 const Home: Template<TemplateRenderProps> = ({ document }) => {
+  const { loaded: reviewsScript, error: reviewsErrorScript } = useScript(
+    "https://modules.pgsdemo.com/modules/reviews.umd.js"
+  );
+  const { loaded: socialScript, error: socialErrorScript } = useScript(
+    "https://modules.pgsdemo.com/modules/social-posts.umd.js"
+  );
+
+  useEffect(() => {
+    if (reviewsScript) {
+      console.log("First script loaded and ready to use");
+    }
+    if (reviewsErrorScript) {
+      console.error("Error loading the first script", reviewsErrorScript);
+    }
+  }, [reviewsScript, reviewsErrorScript]);
+
+  useEffect(() => {
+    if (socialScript) {
+      console.log("Second script loaded and ready to use");
+    }
+    if (socialErrorScript) {
+      console.error("Error loading the second script", socialErrorScript);
+    }
+  }, [socialScript, socialErrorScript]);
+
   return (
     <div className="relative isolate overflow-hidden bg-white">
       {/* <svg
@@ -102,7 +129,7 @@ const Home: Template<TemplateRenderProps> = ({ document }) => {
         </div>
         <div className="mx-auto mt-16 flex max-w-2xl sm:mt-24 lg:ml-10 lg:mr-0 lg:mt-0 lg:max-w-none lg:flex-none xl:ml-32">
           <div className="max-w-3xl flex-none sm:max-w-5xl lg:max-w-none">
-            {/* TODO: Add screenshot of a widget */}
+            {/* TODO: Add screenshot of a module */}
             {/* <div className="-m-2 rounded-xl bg-gray-900/5 p-2 ring-1 ring-inset ring-gray-900/10 lg:-m-4 lg:rounded-2xl lg:p-4">
               <img
                 src="https://tailwindui.com/img/component-images/project-app-screenshot.png"
