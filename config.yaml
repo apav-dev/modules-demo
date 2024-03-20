@@ -8,21 +8,3 @@ buildConfiguration:
       - .npmrc
 livePreviewConfiguration:
   setupCommand: ":"
-# The ^modules/ header allows access to your modules from other sites
-responseHeaders:
-  - pathPattern: ^modules/search.*
-    headerKey: Access-Control-Allow-Origin
-    headerValues:
-      - "*"
-  - pathPattern: ^modules/reviews.*
-    headerKey: Access-Control-Allow-Origin
-    headerValues:
-      - "*"
-  - pathPattern: ^modules/potato.*
-    headerKey: Access-Control-Allow-Origin
-    headerValues:
-      - "*"
-  - pathPattern: ^modules/social-posts.*
-    headerKey: Access-Control-Allow-Origin
-    headerValues:
-      - "*"
