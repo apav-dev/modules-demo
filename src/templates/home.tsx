@@ -28,30 +28,30 @@ export const getHeadConfig: GetHeadConfig<
           content: "This repo contains examples of Modules in Pages.",
         },
       },
-      // {
-      //   type: "script",
-      //   attributes: {
-      //     type: "module",
-      //     src: "https://modules.pgsdemo.com/modules/reviews.umd.js",
-      //   },
-      // },
-      // {
-      //   type: "script",
-      //   attributes: {
-      //     type: "module",
-      //     src: "https://modules.pgsdemo.com/modules/social-posts.umd.js",
-      //   },
-      // },
+      {
+        type: "script",
+        attributes: {
+          type: "module",
+          src: "https://modules.pgsdemo.com/modules/reviews.umd.js",
+        },
+      },
+      {
+        type: "script",
+        attributes: {
+          type: "module",
+          src: "https://modules.pgsdemo.com/modules/social-posts.umd.js",
+        },
+      },
     ],
   };
 };
 
 const Home: Template<TemplateRenderProps> = ({ document }) => {
   const { loaded: reviewsScript, error: reviewsErrorScript } = useScript(
-    "https://modules.pgsdemo.com/modules/reviews.umd.js"
+    "https://modules-cors-issues.pgsdemo.com/modules/reviews.umd.js"
   );
   const { loaded: socialScript, error: socialErrorScript } = useScript(
-    "https://modules.pgsdemo.com/modules/social-posts.umd.js"
+    "https://modules-cors-issues.pgsdemo.com/modules/social-posts.umd.js"
   );
 
   useEffect(() => {
