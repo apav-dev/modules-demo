@@ -1,5 +1,5 @@
 import { Module, ModuleConfig, ModuleProps } from "@yext/pages/*";
-import { AnalyticsProvider } from "@yext/pages-components";
+// import { AnalyticsProvider } from "@yext/pages-components";
 import "./index.css";
 
 const templateData: ModuleProps = {
