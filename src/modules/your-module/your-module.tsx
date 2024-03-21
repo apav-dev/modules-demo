@@ -22,14 +22,16 @@ export const config: ModuleConfig = {
 
 const YourModule: Module = () => {
   return (
-    <AnalyticsProvider
-      // apiKey="REPLACE_ME"
-      // defaultCurrency="REPLACE_ME"
-      templateData={templateData}
-      productionDomains={["REPLACE_ME"]}
-    >
-      <div className="tailwind">Module</div>
-    </AnalyticsProvider>
+    // <AnalyticsProvider
+    //   apiKey="REPLACE_ME"
+    //   defaultCurrency="REPLACE_ME"
+    //   templateData={templateData}
+    //   productionDomains={["REPLACE_ME"]}
+    // >
+    <div className="tailwind">
+      <p className="font-poppins text-regal-blue">Module</p>
+    </div>
+    // </AnalyticsProvider>
   );
 };
 
