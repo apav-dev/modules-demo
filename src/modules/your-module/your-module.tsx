@@ -29,7 +29,11 @@ const YourModule: Module = () => {
     //   productionDomains={["REPLACE_ME"]}
     // >
     <div className="tailwind">
-      <p className="font-poppins text-regal-blue">Module</p>
+      <div className="min-h-screen flex justify-center items-center">
+        <div className="w-20 h-12 bg-regal-blue">
+          <p className="font-poppins text-gray-100 text-center">Module</p>
+        </div>
+      </div>
     </div>
     // </AnalyticsProvider>
   );
