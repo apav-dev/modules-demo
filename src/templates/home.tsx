@@ -42,6 +42,12 @@ export const getHeadConfig: GetHeadConfig<
       //     src: "https://modules.pgsdemo.com/modules/social-posts.umd.js",
       //   },
       // },
+      // {
+      //   type: "script",
+      //   attributes: {
+      //     src: "https://sites.yext.com/339786-reviews.js",
+      //   },
+      // },
     ],
   };
 };
@@ -53,6 +59,8 @@ const Home: Template<TemplateRenderProps> = ({ document }) => {
   const { loaded: socialScript, error: socialErrorScript } = useScript(
     "https://modules.pgsdemo.com/modules/social-posts.umd.js"
   );
+  const { loaded: reviewsWidgetScript, error: socialPostsErrorScript } =
+    useScript("https://sites.yext.com/339786-reviews.js");
 
   useEffect(() => {
     if (reviewsScript) {
@@ -69,6 +77,9 @@ const Home: Template<TemplateRenderProps> = ({ document }) => {
     }
     if (socialErrorScript) {
       console.error("Error loading the second script", socialErrorScript);
+    }
+    if (reviewsWidgetScript) {
+      console.log("Third script loaded and ready to use");
     }
   }, [socialScript, socialErrorScript]);
 
@@ -151,6 +162,17 @@ const Home: Template<TemplateRenderProps> = ({ document }) => {
           <h2 className="text-xl text-poppins font-bold">Social</h2>
           <div className="mt-20">
             <div id="social-posts"></div>
+          </div>
+        </div>
+        <div className="mx-auto max-w-7xl px-6 pb-24 pt-10 sm:pb-32 lg:flex lg:px-8 ">
+          <h2 className="text-xl text-poppins font-bold">Reviews Widget</h2>
+          <div className="mt-20">
+            {/* <div id="social-posts"></div>
+             */}
+            <script
+              type="text/javascript"
+              src="//sites.yext.com/339786-reviews.js"
+            ></script>
           </div>
         </div>
       </div>

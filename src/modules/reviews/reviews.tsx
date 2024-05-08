@@ -64,6 +64,7 @@ export const ReviewsWidget = () => {
   const setEntityIdFromQueryParam = () => {
     const urlParams = new URLSearchParams(window.location.search);
     const entityIdParam = urlParams.get("entityId");
+    console.log("entityIdParam", entityIdParam);
     if (entityIdParam) {
       setEntityId(entityIdParam);
     }
