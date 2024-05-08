@@ -171,7 +171,7 @@ const Home: Template<TemplateRenderProps> = ({ document }) => {
              */}
             <script
               type="text/javascript"
-              src="//sites.yext.com/339786-reviews.js"
+              src="https://sites.yext.com/339786-reviews.js"
             ></script>
           </div>
         </div>
