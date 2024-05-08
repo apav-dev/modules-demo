@@ -8,6 +8,7 @@ import {
 } from "@yext/pages";
 import { useEffect } from "react";
 import { useScript } from "../hooks/useScript";
+import useOldSchoolWidget from "../hooks/useOldSchoolWidget";
 
 export const getPath: GetPath<TemplateRenderProps> = () => {
   return `index.html`;
@@ -62,26 +63,7 @@ const Home: Template<TemplateRenderProps> = ({ document }) => {
   const { loaded: reviewsWidgetScript, error: socialPostsErrorScript } =
     useScript("https://sites.yext.com/339786-reviews.js");
 
-  useEffect(() => {
-    if (reviewsScript) {
-      console.log("First script loaded and ready to use");
-    }
-    if (reviewsErrorScript) {
-      console.error("Error loading the first script", reviewsErrorScript);
-    }
-  }, [reviewsScript, reviewsErrorScript]);
-
-  useEffect(() => {
-    if (socialScript) {
-      console.log("Second script loaded and ready to use");
-    }
-    if (socialErrorScript) {
-      console.error("Error loading the second script", socialErrorScript);
-    }
-    if (reviewsWidgetScript) {
-      console.log("Third script loaded and ready to use");
-    }
-  }, [socialScript, socialErrorScript]);
+  useOldSchoolWidget("https://sites.yext.com/339786-reviews.js");
 
   return (
     <div className="relative isolate overflow-hidden bg-white">
@@ -167,12 +149,13 @@ const Home: Template<TemplateRenderProps> = ({ document }) => {
         <div className="mx-auto max-w-7xl px-6 pb-24 pt-10 sm:pb-32 lg:flex lg:px-8 ">
           <h2 className="text-xl text-poppins font-bold">Reviews Widget</h2>
           <div className="mt-20">
-            {/* <div id="social-posts"></div>
-             */}
-            <script
+            {/* <script
               type="text/javascript"
               src="https://sites.yext.com/339786-reviews.js"
-            ></script>
+            ></script> */}
+            <div id="yext-fotorama" className="mt-20">
+              {/* Widget will load here */}
+            </div>
           </div>
         </div>
       </div>
